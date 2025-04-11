@@ -19,6 +19,12 @@ SmartTasksAPI/
 │ └── SmartTasks.Tests/ # Unit and integration test project
 ├── SmartTasksAPI.sln # Solution file └── README.md
 
+src/
+├── SmartTasks.API/ # API layer (Controllers, Middleware)
+├── SmartTasks.Application/ # Use cases, interfaces, validation
+├── SmartTasks.Domain/ # Entities, Enums, Interfaces
+├── SmartTasks.Infrastructure/ # EF Core, DB, external services
+
 ## 🛠️ Tech Stack
 
 - .NET 8
