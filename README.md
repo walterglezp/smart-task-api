@@ -25,6 +25,27 @@ src/
 ├── SmartTasks.Domain/ # Entities, Enums, Interfaces
 ├── SmartTasks.Infrastructure/ # EF Core, DB, external services
 
+## 🧠 Project Layer Intentions
+
+SmartTasks.Domain
+
+- Defines core interfaces, enums (Status), and perhaps a base Entity
+- No dependencies
+
+SmartTasks.Application
+
+- Holds service interfaces, DTOs, commands/queries (via MediatR later)
+- No dependency on EF or ASP.NET
+
+SmartTasks.Infrastructure
+
+- Implements DB access via EF Core
+- Has DbContext, migration config, repositories
+
+SmartTasks.API
+
+- Configures DI, controllers, and startup logic
+
 ## 🛠️ Tech Stack
 
 - .NET 8
