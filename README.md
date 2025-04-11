@@ -19,6 +19,33 @@ SmartTasksAPI/
 │ └── SmartTasks.Tests/ # Unit and integration test project
 ├── SmartTasksAPI.sln # Solution file └── README.md
 
+src/
+├── SmartTasks.API/ # API layer (Controllers, Middleware)
+├── SmartTasks.Application/ # Use cases, interfaces, validation
+├── SmartTasks.Domain/ # Entities, Enums, Interfaces
+├── SmartTasks.Infrastructure/ # EF Core, DB, external services
+
+## 🧠 Project Layer Intentions
+
+SmartTasks.Domain
+
+- Defines core interfaces, enums (Status), and perhaps a base Entity
+- No dependencies
+
+SmartTasks.Application
+
+- Holds service interfaces, DTOs, commands/queries (via MediatR later)
+- No dependency on EF or ASP.NET
+
+SmartTasks.Infrastructure
+
+- Implements DB access via EF Core
+- Has DbContext, migration config, repositories
+
+SmartTasks.API
+
+- Configures DI, controllers, and startup logic
+
 ## 🛠️ Tech Stack
 
 - .NET 8
