@@ -5,6 +5,11 @@ namespace SmartTasks.Infrastructure
 {
     public class AppDbContext : DbContext
     {
+        public AppDbContext(DbContextOptions<AppDbContext> options)
+            : base(options)
+        {
+        }
+
         public DbSet<TaskRecord> Tasks { get; set; }
         public DbSet<TaskHistoryRecord> TaskHistory { get; set; }
 
@@ -24,7 +29,7 @@ namespace SmartTasks.Infrastructure
             modelBuilder.Entity<TaskHistoryRecord>(entity =>
             {
                 entity.ToTable("TaskHistory");
-                entity.HasKey(x => new { x.Id, x.Version }); // Composite key for immutability
+                entity.HasKey(x => new { x.Id, x.Version });
                 entity.Property(x => x.Cts).IsRequired();
                 entity.Property(x => x.Ts).IsRequired();
                 entity.Property(x => x.ResourceType).HasMaxLength(100);
