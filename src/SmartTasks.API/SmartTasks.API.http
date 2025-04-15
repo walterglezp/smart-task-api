@@ -1,6 +1,18 @@
-@SmartTasks.API_HostAddress = http://localhost:5187
+@API_HostAddress = https://localhost:7258
 
-GET {{SmartTasks.API_HostAddress}}/weatherforecast/
+GET {{API_HostAddress}}/status/
 Accept: application/json
 
 ###
+GET https://localhost:7258/api/tasks
+###
+POST {{API_HostAddress}}/api/Tasks
+Content-Type: application/json
+
+{
+  "title": "Prepare GitHub repo",
+  "description": "Push Smart Tasks API updates and docs",
+  "dueDate": "2025-04-15T12:00:00Z",
+  "priority": 1,
+  "isCompleted": false
+}
